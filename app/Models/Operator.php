@@ -11,5 +11,11 @@ class Operator extends Model
     protected $fillable = [
         'operator_name',
         'country_id',
+        'domestic_call',
+        'domestic_sms',
+        'domestic_internet',
+        'international_call',
+        'international_sms',
+        'international_internet',
     ];
 }

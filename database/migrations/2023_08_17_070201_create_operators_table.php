@@ -15,6 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('operator_name');
             $table->unsignedBigInteger('country_id')->nullable();
+            $table->double('domestic_call', 8, 4)->nullable();
+            $table->double('domestic_sms', 8, 4)->nullable();
+            $table->double('domestic_internet', 8, 4)->nullable();
+            $table->double('international_call', 8, 4)->nullable();
+            $table->double('international_sms', 8, 4)->nullable();
+            $table->double('international_internet', 8, 4)->nullable();
             $table->timestamps();
             $table->foreign('country_id')->references('id')->on('countries');
         });
