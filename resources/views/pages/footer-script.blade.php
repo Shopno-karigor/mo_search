@@ -86,6 +86,7 @@
 <script>
   $(function () {
     //Initialize Select2 Elements
+    $('.select1').select2()
     $('.select2').select2()
 
     $('#startdate').datetimepicker({

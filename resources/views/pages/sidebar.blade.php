@@ -51,6 +51,42 @@
             </ul>
           </li>
 
+          <li class="nav-item @if (request()->routeIs('admin')){ menu-open } @endif">
+            <a href="#" class="nav-link @if (request()->routeIs('admin')){ active } @endif">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Country Module
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('/')}}" class="nav-link @if (request()->routeIs('admin')){ active } @endif">
+                  <i class="far fa-circle text-success nav-icon"></i>
+                  <p>Country List</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item @if (request()->routeIs('admin')){ menu-open } @endif">
+            <a href="#" class="nav-link @if (request()->routeIs('admin')){ active } @endif">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Operator Module
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('/')}}" class="nav-link @if (request()->routeIs('admin')){ active } @endif">
+                  <i class="far fa-circle text-success nav-icon"></i>
+                  <p>Add Operator</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
 
           <li class="nav-header">EXAMPLES</li>
 

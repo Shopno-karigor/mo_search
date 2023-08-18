@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\Models\GeneralUser;
+use App\Models\Country;
+use App\Models\Operator;
 
 class IndexController extends Controller
 {
@@ -14,7 +15,9 @@ class IndexController extends Controller
         return view('welcome');
     }
     public function index_search(){
-        return view('pages.Search.search');
+        $countries = Country::get();
+        $operators = Operator::get();
+        return view('pages.Search.search', compact('countries','operators'));
     }
     // Errors
     public function index_error_404(){ return view('admin.pages.Errors.404');}
