@@ -15,6 +15,7 @@ use App\Http\Controllers\IndexController;
 */
 
 Route::get('/', [IndexController::class, 'index_welcome'])->name('/');
+Route::get('search', [IndexController::class, 'index_search'])->name('search');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'
 ])->group(function () {

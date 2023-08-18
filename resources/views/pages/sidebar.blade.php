@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="{{route('/')}}" class="brand-link">
       <img src="{{asset('dist/img/Maxx_coin.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">OMS | Dashboard</span>
+      <span class="brand-text font-weight-light">Admin Center</span>
     </a>
 
     <!-- Sidebar -->
@@ -33,8 +33,8 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               
-          <li class="nav-item @if (request()->routeIs('/')){ menu-open } @endif">
-            <a href="#" class="nav-link @if (request()->routeIs('/')){ active } @endif">
+          <li class="nav-item @if (request()->routeIs('admin')){ menu-open } @endif">
+            <a href="#" class="nav-link @if (request()->routeIs('admin')){ active } @endif">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -43,9 +43,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('/')}}" class="nav-link @if (request()->routeIs('/')){ active } @endif">
+                <a href="{{route('/')}}" class="nav-link @if (request()->routeIs('admin')){ active } @endif">
                   <i class="far fa-circle text-success nav-icon"></i>
-                  <p>Dashboard</p>
+                  <p>Welcome</p>
                 </a>
               </li>
             </ul>
