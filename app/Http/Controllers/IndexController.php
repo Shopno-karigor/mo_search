@@ -19,6 +19,13 @@ class IndexController extends Controller
         $operators = Operator::get();
         return view('pages.Search.search', compact('countries','operators'));
     }
+    public function search(Request $request){
+        $params = $request->all();
+        $data = Operator::where('operators.id',$params['operator_id'])
+        ->join('countries', 'countries.id', '=', 'operators.country_id')
+        ->get();
+        return view('pages.Search.search_result', compact('data'));
+    }
     // Errors
     public function index_error_404(){ return view('admin.pages.Errors.404');}
     public function index_error_500(){ return view('admin.pages.Errors.500');}

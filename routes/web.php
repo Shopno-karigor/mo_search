@@ -16,17 +16,11 @@ use App\Http\Controllers\IndexController;
 
 Route::get('/', [IndexController::class, 'index_welcome'])->name('/');
 Route::get('search', [IndexController::class, 'index_search'])->name('search');
+Route::post('submit-search-query', [IndexController::class, 'search'])->name('submit-search-query');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
     Route::get('admin', [IndexController::class, 'index_index'])->name('admin');
-    //Booking
-    Route::get('booking-query', [BookingController::class, 'index'])->name('booking-query');
     Route::post('submit-booking-query', [BookingController::class, 'create'])->name('submit-booking-query');
-    Route::post('confirm-query', [BookingController::class, 'confirm_by_user'])->name('confirm-query');
-    Route::post('cancel-from-query', [BookingController::class, 'cancel_by_user'])->name('cancel-from-query');
-    Route::post('approve-booking-query', [BookingController::class, 'approve'])->name('approve-booking-query');
-    Route::post('cancel-booking-query', [BookingController::class, 'cancel'])->name('cancel-booking-query');
-    Route::get('booking-query-details/{id}', [BookingController::class, 'edit'])->name('booking-query-details');
 });

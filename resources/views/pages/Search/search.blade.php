@@ -7,7 +7,7 @@
 <div class="wrapper">
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-light-primary elevation-4">
       <!-- Brand Logo -->
 
     <!-- Sidebar -->
@@ -94,7 +94,7 @@
             <!-- Default box -->
             <div class="card">
               <div class="card-header">
-                  <h3 class="card-title">Select Country to view all operator list or select both country and operator to view the details of a single operator</h3>
+                  <h3 class="card-title">Select Country to view all operator list or select both country and operator to view the details of a single operator.</h3>
                   <div class="card-tools">
                       <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                           <i class="fas fa-minus"></i>
@@ -105,7 +105,7 @@
                   </div>
               </div>
               <div class="card-body">
-                <form action="{{route('submit-booking-query')}}" method="post" enctype="multipart/form-data" autocomplete="off">
+                <form action="{{route('submit-search-query')}}" method="post" enctype="multipart/form-data" autocomplete="off">
                   @csrf
                     <div class="row">
                         <div class="col-6">
