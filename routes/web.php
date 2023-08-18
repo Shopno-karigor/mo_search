@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [IndexController::class, 'index_welcome'])->name('/');
+
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
-    Route::get('/', [IndexController::class, 'index_index'])->name('/');
+    Route::get('admin', [IndexController::class, 'index_index'])->name('admin');
     //Booking
     Route::get('booking-query', [BookingController::class, 'index'])->name('booking-query');
     Route::post('submit-booking-query', [BookingController::class, 'create'])->name('submit-booking-query');
