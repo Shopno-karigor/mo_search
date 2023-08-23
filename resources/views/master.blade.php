@@ -2,6 +2,8 @@
     <html lang="en">
         @include('pages.header')
         @yield('index')
+        @yield('search')
+        @yield('searchResults')
         @yield('countryList')
         @yield('addOperator')
         @yield('operatorList')

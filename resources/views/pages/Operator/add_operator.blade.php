@@ -64,51 +64,80 @@
                     {{ Session('success') }}
                   </div>
                 @endif
-                <form action="{{route('add-driver')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('store-operator')}}" method="post" enctype="multipart/form-data">
                   @csrf
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
-                                <label>Driver Name</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" name="name" required>
-                                @error('name')
+                                <label>Operator Name</label>
+                                <input type="text" class="form-control @error('operator_name') is-invalid @enderror" value="{{ old('operator_name') }}" name="operator_name" required>
+                                @error('operator_name')
                                   <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="form-group">
-                              <label>Driver Address</label>
-                              <input type="text" class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}" name="address" required>
-                              @error('address')
+                                <label>Select Country</label>
+                                <select class="form-control select3 select3-hidden-accessible @error('country_id') is-invalid @enderror" style="width: 100%;" data-select3-id="1" tabindex="-1" aria-hidden="true" name="country_id" required>
+                                  <option selected="selected" disabled>Select Country</option>
+                                  @foreach ($countries as $item)
+                                  <option value="{{$item->id}}">{{$item->country_name}}</option>
+                                  @endforeach
+                                </select>
+                                  @error('country_id')
+                                      <p class="text-danger">{{ $message }}</p>
+                                  @enderror
+                            </div>
+                            
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label>Domestic Call Price</label>
+                                <input type="text" class="form-control @error('domestic_call') is-invalid @enderror" value="{{ old('domestic_call') }}" name="domestic_call" required>
+                                @error('domestic_call')
+                                  <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Domestic SMS Price</label>
+                                <input type="text" class="form-control @error('domestic_sms') is-invalid @enderror" value="{{ old('domestic_sms') }}" name="domestic_sms" required>
+                                @error('domestic_sms')
+                                  <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                              <label>Domestic Internet Price</label>
+                              <input type="text" class="form-control @error('domestic_internet') is-invalid @enderror" value="{{ old('domestic_internet') }}" name="domestic_internet" required>
+                              @error('domestic_internet')
                                 <p class="text-danger">{{ $message }}</p>
                               @enderror
                             </div>
-                            <div class="form-group">
-                                <label>Driver Contact</label>
-                                <input type="text" class="form-control @error('contact') is-invalid @enderror" value="{{ old('contact') }}" name="contact" required>
-                                @error('contact')
-                                  <p class="text-danger">{{ $message }}</p>
-                                @enderror
-                            </div>
                         </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label>Driving License Number</label>
-                                <input type="text" class="form-control @error('driving_license') is-invalid @enderror" value="{{ old('driving_license') }}" name="driving_license" required>
-                                @error('driving_license')
-                                  <p class="text-danger">{{ $message }}</p>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                              <label>Vehicle Number</label>
-                              <input type="text" class="form-control @error('vehicle_number') is-invalid @enderror" value="{{ old('vehicle_number') }}" name="vehicle_number" required>
-                              @error('vehicle_number')
+                        <div class="col-3">
+                          <div class="form-group">
+                              <label>International Call Price</label>
+                              <input type="text" class="form-control @error('international_call') is-invalid @enderror" value="{{ old('international_call') }}" name="international_call" required>
+                              @error('international_call')
                                 <p class="text-danger">{{ $message }}</p>
                               @enderror
-                            </div>
-                        </div>
+                          </div>
+                          <div class="form-group">
+                              <label>International SMS Price</label>
+                              <input type="text" class="form-control @error('international_sms') is-invalid @enderror" value="{{ old('international_sms') }}" name="international_sms" required>
+                              @error('international_sms')
+                                <p class="text-danger">{{ $message }}</p>
+                              @enderror
+                          </div>
+                          <div class="form-group">
+                            <label>International Internet Price</label>
+                            <input type="text" class="form-control @error('international_internet') is-invalid @enderror" value="{{ old('international_internet') }}" name="international_internet" required>
+                            @error('international_internet')
+                              <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                          </div>
+                      </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <input type="submit" class="btn btn-success" value="Save Driver">
+                                <input type="submit" class="btn btn-success" value="Save Operator">
                             </div>
                         </div>
                     </div>

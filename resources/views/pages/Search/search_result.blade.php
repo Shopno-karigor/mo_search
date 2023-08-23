@@ -1,5 +1,5 @@
 @extends('master')
-@section('bookingQuery')
+@section('searchResults')
   <title>RIRC | Search Result</title>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

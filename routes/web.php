@@ -26,5 +26,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'
     Route::get('admin', [IndexController::class, 'index_index'])->name('admin');
     Route::get('country-list', [CountryController::class, 'show'])->name('country-list');
     Route::get('add-operator', [OperatorController::class, 'index'])->name('add-operator');
+    Route::post('store-operator', [OperatorController::class, 'store'])->name('store-operator');
     Route::get('operator-list', [OperatorController::class, 'show'])->name('operator-list');
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Operator;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
 class OperatorController extends Controller
@@ -12,7 +13,9 @@ class OperatorController extends Controller
      */
     public function index()
     {
-        return view('pages.Operator.add_operator');
+        $countries = Country::get();
+        // dd($data);
+        return view('pages.Operator.add_operator', compact('countries'));
     }
 
     /**
@@ -28,7 +31,23 @@ class OperatorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $params = $request->all();
+        $validated = $request->validate([
+            'operator_name' => 'required',
+            'country_id' => 'required',
+            'domestic_call' => 'required',
+            'domestic_sms' => 'required',
+            'domestic_internet' => 'required',
+            'international_call' => 'required',
+            'international_sms' => 'required',
+            'international_internet' => 'required',
+        ]);
+        $response = Operator::create($params);
+        if($response){
+            return redirect()->back()->with('success', 'Operator added');
+        }else{
+            return redirect()->back()->with('error', 'Failed to add the operator');
+        }
     }
 
     /**
@@ -55,7 +74,27 @@ class OperatorController extends Controller
      */
     public function update(Request $request, Operator $country)
     {
-        //
+        $params = $request->all();
+        $validated = $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'contact' => 'required',
+            'driving_license' => 'required',
+            'vehicle_number' => 'required',
+        ]);
+        $data=array(
+            'name' => $params['name'],
+            'address' => $params['address'],
+            'contact' => $params['contact'],
+            'driving_license' => $params['driving_license'],
+            'vehicle_number' => $params['vehicle_number'],
+        );
+        try {
+            Driver::where('id',$params['id'])->update($data);
+            return redirect()->back()->with('success', 'Driver information updated');
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     /**

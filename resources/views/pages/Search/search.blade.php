@@ -1,5 +1,5 @@
 @extends('master')
-@section('bookingQuery')
+@section('search')
   <title>Reducing International Roaming Cost</title>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
