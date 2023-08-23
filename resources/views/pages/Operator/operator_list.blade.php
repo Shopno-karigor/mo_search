@@ -1,6 +1,6 @@
 @extends('master')
-@section('schoolList')
-  <title>BusTech OMS | Driver List</title>
+@section('operatorList')
+  <title>Reducing International Roaming Cost</title>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <!-- Site wrapper -->
@@ -19,13 +19,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Driver List</h1>
+            <h1>Operator List</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('/')}}">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">Driver</a></li>
-              <li class="breadcrumb-item active">Driver List</li>
+              <li class="breadcrumb-item"><a href="#">Operator</a></li>
+              <li class="breadcrumb-item active">Operator List</li>
             </ol>
           </div>
         </div>
@@ -41,7 +41,7 @@
             <!-- Default box -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">All Drivers</h3>
+                <h3 class="card-title">All Operators</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -70,39 +70,42 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                      <th>Delete</th>
-                      <th>Edit</th>
-                      <th>Driver Name</th>
-                      <th>Driver Address</th>
-                      <th>Driver Contact</th>
-                      <th>Driver License Number</th>
-                      <th>License Plate Number</th>
+                      <th>Operator Name</th>
+                      <th>Country</th>
+                      <th>Domestic Call Price</th>
+                      <th>Domestic SMS Price</th>
+                      <th>Domestic Internet Price</th>
+                      <th>International Call Price</th>
+                      <th>International SMS Price</th>
+                      <th>International Internet Price</th>
                     </tr>
                   </thead>
                   <tbody>
                     @if (isset($data))
-                      @foreach ($data as $key=>$row)
+                      @foreach ($data as $item)
                         <tr>
-                          <td><a href="{{route('edit-driver',$row->id)}}" class="btn btn-success">Update</a></td>
-                          <td><a href="" class="btn btn-danger delete-driver-button" data-toggle="modal" data-target="#delete-driver" data-driver="{{$row->id}}" >Delete</a></td>
-                          <td>{{$row->name}}</td>
-                          <td>{{$row->address}}</td>
-                          <td>{{$row->contact}}</td>
-                          <td>{{$row->driving_license}}</td>
-                          <td>{{$row->vehicle_number}}</td>
-                        </tr> 
+                          <td>{{$item->operator_name}}</td>
+                          <td>{{$item->country_name}}</td>
+                          <td>{{$item->domestic_call}} USD</td>
+                          <td>{{$item->domestic_sms}} USD</td>
+                          <td>{{$item->domestic_internet}} USD</td>
+                          <td>{{$item->international_call}} USD</td>
+                          <td>{{$item->international_sms}} USD</td>
+                          <td>{{$item->international_internet}} USD</td>
+                        </tr>
                       @endforeach
                     @endif
                   </tbody>
                   <tfoot>
                     <tr>
-                        <th>Delete</th>
-                        <th>Edit</th>
-                        <th>Driver Name</th>
-                        <th>Driver Address</th>
-                        <th>Driver Contact</th>
-                        <th>Driver License Number</th>
-                        <th>License Plate Number</th>
+                      <th>Operator Name</th>
+                      <th>Country</th>
+                      <th>Domestic Call Price</th>
+                      <th>Domestic SMS Price</th>
+                      <th>Domestic Internet Price</th>
+                      <th>International Call Price</th>
+                      <th>International SMS Price</th>
+                      <th>International Internet Price</th>
                     </tr>
                   </tfoot>
                 </table>
@@ -116,38 +119,6 @@
       </div>
     </section>
     <!-- /.content -->
-
-        <!-- Delete driver  -->
-        <div class="modal fade" id="delete-driver">
-          <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-              <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-              </div>
-              <div class="modal-body">
-                  <div class="form-group">
-                      <label class="text-danger text-center"><b>This driver will be deleted. Please confirm the action</b></label>
-                  </div>
-                  <div class="row">
-                      <div class="col"></div>
-                      <div class="col">
-                          <form action="{{route('destroy-driver')}}" method="POST">
-                            @csrf
-                              <input type="hidden" id="deleted-driver" name="driverId" value="">
-                              <input type="submit" class="btn btn-danger" value="Confirm">
-                          </form>
-                      </div>
-                      <div class="col"></div>
-                  </div>
-              </div>
-          </div>
-          <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
       
   </div>
   <!-- /.content-wrapper -->

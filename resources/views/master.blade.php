@@ -4,6 +4,7 @@
         @yield('index')
         @yield('countryList')
         @yield('addOperator')
+        @yield('operatorList')
         
   
 

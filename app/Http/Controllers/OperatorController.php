@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CouOperatorntry;
+use App\Models\Operator;
 use Illuminate\Http\Request;
 
 class OperatorController extends Controller
@@ -34,16 +34,18 @@ class OperatorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Operator $country)
+    public function show(Operator $operator)
     {
-        $data = Operator::get();
-        return view('pages.Country.country_list', compact('data'));
+        $data = Operator::select('*')
+        ->join('countries', 'countries.id', '=', 'operators.country_id')
+        ->get();
+        return view('pages.Operator.operator_list', compact('data'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Operator $country)
+    public function edit(Operator $operator)
     {
         //
     }

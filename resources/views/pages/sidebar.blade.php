@@ -68,8 +68,8 @@
             </ul>
           </li>
 
-          <li class="nav-item @if (request()->routeIs('add-operator')){ menu-open } @endif">
-            <a href="#" class="nav-link @if (request()->routeIs('add-operator')){ active } @endif">
+          <li class="nav-item @if (request()->routeIs('add-operator') || request()->routeIs('operator-list')){ menu-open } @endif">
+            <a href="#" class="nav-link @if (request()->routeIs('add-operator') || request()->routeIs('operator-list')){ active } @endif">
               <i class="nav-icon fas fa-broadcast-tower"></i>
               <p>
                 Operator Module
@@ -81,6 +81,12 @@
                 <a href="{{route('add-operator')}}" class="nav-link @if (request()->routeIs('add-operator')){ active } @endif">
                   <i class="far fa-circle text-success nav-icon"></i>
                   <p>Add Operator</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('operator-list')}}" class="nav-link @if (request()->routeIs('operator-list')){ active } @endif">
+                  <i class="far fa-circle text-success nav-icon"></i>
+                  <p>Operator List</p>
                 </a>
               </li>
             </ul>
