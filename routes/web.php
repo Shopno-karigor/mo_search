@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\OperatorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'
     Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
     Route::get('admin', [IndexController::class, 'index_index'])->name('admin');
     Route::get('country-list', [CountryController::class, 'show'])->name('country-list');
+    Route::get('add-operator', [OperatorController::class, 'index'])->name('add-operator');
 });

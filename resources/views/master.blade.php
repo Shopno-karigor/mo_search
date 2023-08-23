@@ -3,6 +3,7 @@
         @include('pages.header')
         @yield('index')
         @yield('countryList')
+        @yield('addOperator')
         
   
 
