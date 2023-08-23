@@ -1,6 +1,6 @@
 @extends('master')
-@section('editDriver')
-  <title>BusTech OMS | Edit Driver</title>
+@section('editOperator')
+  <title>Reducing International Roaming Cost</title>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <!-- Site wrapper -->
@@ -19,13 +19,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Edit Driver</h1>
+            <h1>Edit Operator</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('/')}}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{route('driver-list')}}">Driver List</a></li>
-              <li class="breadcrumb-item active">Edit Driver</li>
+              <li class="breadcrumb-item"><a href="{{route('operator-list')}}">Operator List</a></li>
+              <li class="breadcrumb-item active">Edit Operator</li>
             </ol>
           </div>
         </div>
@@ -40,7 +40,7 @@
             <!-- Default box -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Edit Driver Form</h3>
+                <h3 class="card-title">Edit Operator Form</h3>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                     <i class="fas fa-minus"></i>
@@ -65,7 +65,7 @@
                     {{ Session('success') }}
                   </div>
                 @endif
-                <form action="{{route('update-driver')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('update-operator')}}" method="post" enctype="multipart/form-data">
                   @csrf
                     <div class="row">
                         <div class="col-6">
@@ -82,13 +82,6 @@
                               @error('address')
                                 <p class="text-danger">{{ $message }}</p>
                               @enderror
-                            </div>
-                            <div class="form-group">
-                                <label>Driver Contact</label>
-                                <input type="text" class="form-control @error('contact') is-invalid @enderror" value="{{$data[0]->contact}}" name="contact" required>
-                                @error('contact')
-                                  <p class="text-danger">{{ $message }}</p>
-                                @enderror
                             </div>
                         </div>
                         <div class="col-6">

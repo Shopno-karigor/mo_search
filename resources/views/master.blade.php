@@ -7,6 +7,7 @@
         @yield('countryList')
         @yield('addOperator')
         @yield('operatorList')
+        @yield('editOperator')
         
   
 

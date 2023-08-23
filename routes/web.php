@@ -28,4 +28,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'
     Route::get('add-operator', [OperatorController::class, 'index'])->name('add-operator');
     Route::post('store-operator', [OperatorController::class, 'store'])->name('store-operator');
     Route::get('operator-list', [OperatorController::class, 'show'])->name('operator-list');
+    Route::get('edit-operator/{id}', [OperatorController::class, 'edit'])->name('edit-operator');
+    Route::post('update-operator', [OperatorController::class, 'update'])->name('update-operator');
 });

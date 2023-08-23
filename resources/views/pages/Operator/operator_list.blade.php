@@ -70,6 +70,8 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
+                      <th>Delete</th>
+                      <th>Edit</th>
                       <th>Operator Name</th>
                       <th>Country</th>
                       <th>Domestic Call Price</th>
@@ -84,6 +86,8 @@
                     @if (isset($data))
                       @foreach ($data as $item)
                         <tr>
+                          <td><a href="{{route('edit-operator',$item->operator_id)}}" class="btn btn-success">Update</a></td>
+                          <td><a href="" class="btn btn-danger delete-driver-button" data-toggle="modal" data-target="#delete-driver" data-operator="{{$item->operator_id}}" >Delete</a></td>
                           <td>{{$item->operator_name}}</td>
                           <td>{{$item->country_name}}</td>
                           <td>{{$item->domestic_call}} USD</td>
@@ -98,6 +102,8 @@
                   </tbody>
                   <tfoot>
                     <tr>
+                      <th>Delete</th>
+                      <th>Edit</th>
                       <th>Operator Name</th>
                       <th>Country</th>
                       <th>Domestic Call Price</th>

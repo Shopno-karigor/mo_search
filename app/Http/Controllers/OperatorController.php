@@ -55,7 +55,7 @@ class OperatorController extends Controller
      */
     public function show(Operator $operator)
     {
-        $data = Operator::select('*')
+        $data = Operator::select('*','operators.id as operator_id')
         ->join('countries', 'countries.id', '=', 'operators.country_id')
         ->get();
         return view('pages.Operator.operator_list', compact('data'));
@@ -64,9 +64,10 @@ class OperatorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Operator $operator)
+    public function edit($id, Operator $operator)
     {
-        //
+        $data = Operator::where('id',$id)->get();
+        return view('pages.Operator.update_operator', compact('data'));
     }
 
     /**
