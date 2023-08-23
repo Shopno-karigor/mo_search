@@ -9,7 +9,9 @@ use App\Models\Operator;
 class IndexController extends Controller
 {
     public function index_index(){
-        return view('pages.index');
+        $country = Country::count();
+        $operator = Operator::count();
+        return view('pages.index', compact('country','operator'));
     }
     public function index_welcome(){
         return view('welcome');
