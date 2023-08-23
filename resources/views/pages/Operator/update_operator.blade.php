@@ -70,42 +70,69 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
-                                <label>Driver Name</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{$data[0]->name}}" name="name" required>
-                                @error('name')
+                                <label>Operator Name</label>
+                                <input type="text" class="form-control @error('operator_name') is-invalid @enderror" value="{{$data[0]->operator_name}}" name="operator_name" required>
+                                @error('operator_name')
                                   <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="form-group">
-                              <label>Driver Address</label>
-                              <input type="text" class="form-control @error('address') is-invalid @enderror" value="{{$data[0]->address}}" name="address" required>
-                              @error('address')
+                              <label>Country</label>
+                              <input type="text" class="form-control" value="{{$data[0]->country_name}}" disabled>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="form-group">
+                              <label>Domestic Call Price</label>
+                              <input type="text" class="form-control @error('domestic_call') is-invalid @enderror" value="{{$data[0]->domestic_call}}" name="domestic_call" required>
+                              @error('domestic_call')
                                 <p class="text-danger">{{ $message }}</p>
                               @enderror
-                            </div>
+                          </div>
+                          <div class="form-group">
+                              <label>Domestic SMS Price</label>
+                              <input type="text" class="form-control @error('domestic_sms') is-invalid @enderror" value="{{$data[0]->domestic_sms}}" name="domestic_sms" required>
+                              @error('domestic_sms')
+                                <p class="text-danger">{{ $message }}</p>
+                              @enderror
+                          </div>
+                          <div class="form-group">
+                            <label>Domestic Internet Price</label>
+                            <input type="text" class="form-control @error('domestic_internet') is-invalid @enderror" value="{{$data[0]->domestic_internet}}" name="domestic_internet" required>
+                            @error('domestic_internet')
+                              <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="form-group">
+                              <label>International Call Price</label>
+                              <input type="text" class="form-control @error('international_call') is-invalid @enderror" value="{{$data[0]->international_call}}" name="international_call" required>
+                              @error('international_call')
+                                <p class="text-danger">{{ $message }}</p>
+                              @enderror
+                          </div>
+                          <div class="form-group">
+                              <label>International SMS Price</label>
+                              <input type="text" class="form-control @error('international_sms') is-invalid @enderror" value="{{$data[0]->international_sms}}" name="international_sms" required>
+                              @error('international_sms')
+                                <p class="text-danger">{{ $message }}</p>
+                              @enderror
+                          </div>
+                          <div class="form-group">
+                            <label>International Internet Price</label>
+                            <input type="text" class="form-control @error('international_internet') is-invalid @enderror" value="{{$data[0]->international_internet}}" name="international_internet" required>
+                            @error('international_internet')
+                              <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                          </div>
+                          <div class="form-group">
+                            <input type="hidden" name="operator_id" value="{{$data[0]->operator_id}}">
+                        </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label>Driving License Number</label>
-                                <input type="text" class="form-control @error('driving_license') is-invalid @enderror" value="{{$data[0]->driving_license}}" name="driving_license" required>
-                                @error('driving_license')
-                                  <p class="text-danger">{{ $message }}</p>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                              <label>Vehicle Number</label>
-                              <input type="text" class="form-control @error('vehicle_number') is-invalid @enderror" value="{{$data[0]->vehicle_number}}" name="vehicle_number" required>
-                              @error('vehicle_number')
-                                <p class="text-danger">{{ $message }}</p>
-                              @enderror
-                            </div>
-                            <div class="form-group">
-                                <input type="hidden" name="id" value="{{$data[0]->id}}">
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <input type="submit" class="btn btn-success" value="Update Driver">
+                                <input type="submit" class="btn btn-success" value="Update Operator">
                             </div>
                         </div>
                     </div>

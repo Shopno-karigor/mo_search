@@ -66,33 +66,40 @@ class OperatorController extends Controller
      */
     public function edit($id, Operator $operator)
     {
-        $data = Operator::where('id',$id)->get();
+        $data = Operator::select('*','operators.id as operator_id')
+        ->where('operators.id',$id)
+        ->join('countries', 'countries.id', '=', 'operators.country_id')
+        ->get();
         return view('pages.Operator.update_operator', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Operator $country)
+    public function update(Request $request, Operator $operator)
     {
         $params = $request->all();
         $validated = $request->validate([
-            'name' => 'required',
-            'address' => 'required',
-            'contact' => 'required',
-            'driving_license' => 'required',
-            'vehicle_number' => 'required',
+            'operator_name' => 'required',
+            'domestic_call' => 'required',
+            'domestic_sms' => 'required',
+            'domestic_internet' => 'required',
+            'international_call' => 'required',
+            'international_sms' => 'required',
+            'international_internet' => 'required',
         ]);
         $data=array(
-            'name' => $params['name'],
-            'address' => $params['address'],
-            'contact' => $params['contact'],
-            'driving_license' => $params['driving_license'],
-            'vehicle_number' => $params['vehicle_number'],
+            'operator_name' => $params['operator_name'],
+            'domestic_call' => $params['domestic_call'],
+            'domestic_sms' => $params['domestic_sms'],
+            'domestic_internet' => $params['domestic_internet'],
+            'international_call' => $params['international_call'],
+            'international_sms' => $params['international_sms'],
+            'international_internet' => $params['international_internet'],
         );
         try {
-            Driver::where('id',$params['id'])->update($data);
-            return redirect()->back()->with('success', 'Driver information updated');
+            Operator::where('id',$params['operator_id'])->update($data);
+            return redirect()->back()->with('success', 'Operator information updated');
         } catch (\Illuminate\Database\QueryException $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
@@ -101,7 +108,7 @@ class OperatorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Operator $country)
+    public function destroy(Operator $operator)
     {
         //
     }
