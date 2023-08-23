@@ -68,8 +68,8 @@
             </ul>
           </li>
 
-          <li class="nav-item @if (request()->routeIs('add-operator') || request()->routeIs('operator-list')){ menu-open } @endif">
-            <a href="#" class="nav-link @if (request()->routeIs('add-operator') || request()->routeIs('operator-list')){ active } @endif">
+          <li class="nav-item @if (request()->routeIs('add-operator') || request()->routeIs('operator-list') || request()->routeIs('edit-operator')){ menu-open } @endif">
+            <a href="#" class="nav-link @if (request()->routeIs('add-operator') || request()->routeIs('operator-list') || request()->routeIs('edit-operator')){ active } @endif">
               <i class="nav-icon fas fa-broadcast-tower"></i>
               <p>
                 Operator Module

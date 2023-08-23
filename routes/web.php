@@ -30,4 +30,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'
     Route::get('operator-list', [OperatorController::class, 'show'])->name('operator-list');
     Route::get('edit-operator/{id}', [OperatorController::class, 'edit'])->name('edit-operator');
     Route::post('update-operator', [OperatorController::class, 'update'])->name('update-operator');
+    Route::post('destroy-operator', [OperatorController::class, 'destroy'])->name('destroy-operator');
 });

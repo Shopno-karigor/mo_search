@@ -104,3 +104,11 @@
   })
 </script>
 
+<!-- Deleting operator -->
+<script>
+  $(".delete-operator-button").click(function() {
+    let operator_id = $(this).attr("data-operator");
+    $("#deleted-operator").attr("value",operator_id);
+  });
+</script>
+

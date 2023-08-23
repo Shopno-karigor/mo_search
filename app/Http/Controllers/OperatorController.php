@@ -108,8 +108,14 @@ class OperatorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Operator $operator)
+    public function destroy(Request $request, Operator $operator)
     {
-        //
+        $params = $request->all();
+        try {
+            Operator::destroy($params['operatorId']);
+            return redirect()->back()->with('success', 'Operator is deleted');
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 }

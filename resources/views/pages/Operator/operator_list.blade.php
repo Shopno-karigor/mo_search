@@ -87,7 +87,7 @@
                       @foreach ($data as $item)
                         <tr>
                           <td><a href="{{route('edit-operator',$item->operator_id)}}" class="btn btn-success">Update</a></td>
-                          <td><a href="" class="btn btn-danger delete-driver-button" data-toggle="modal" data-target="#delete-driver" data-operator="{{$item->operator_id}}" >Delete</a></td>
+                          <td><a href="" class="btn btn-danger delete-operator-button" data-toggle="modal" data-target="#delete-operator" data-operator="{{$item->operator_id}}" >Delete</a></td>
                           <td>{{$item->operator_name}}</td>
                           <td>{{$item->country_name}}</td>
                           <td>{{$item->domestic_call}} USD</td>
@@ -125,6 +125,38 @@
       </div>
     </section>
     <!-- /.content -->
+
+    <!-- Delete operator  -->
+    <div class="modal fade" id="delete-operator">
+      <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+          <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                  <label class="text-danger text-center"><b>This operator will be deleted. Please confirm the action</b></label>
+              </div>
+              <div class="row">
+                  <div class="col"></div>
+                  <div class="col">
+                      <form action="{{route('destroy-operator')}}" method="POST">
+                        @csrf
+                          <input type="hidden" id="deleted-operator" name="operatorId" value="">
+                          <input type="submit" class="btn btn-danger" value="Confirm">
+                      </form>
+                  </div>
+                  <div class="col"></div>
+              </div>
+          </div>
+      </div>
+      <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
       
   </div>
   <!-- /.content-wrapper -->
