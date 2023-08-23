@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\CountryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
     Route::get('admin', [IndexController::class, 'index_index'])->name('admin');
-    Route::post('submit-booking-query', [BookingController::class, 'create'])->name('submit-booking-query');
+    Route::get('country-list', [CountryController::class, 'show'])->name('country-list');
 });

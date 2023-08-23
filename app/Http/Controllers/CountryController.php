@@ -36,7 +36,8 @@ class CountryController extends Controller
      */
     public function show(Country $country)
     {
-        //
+        $data = Country::get();
+        return view('pages.Country.country_list', compact('data'));
     }
 
     /**

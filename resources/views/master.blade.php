@@ -2,19 +2,8 @@
     <html lang="en">
         @include('pages.header')
         @yield('index')
-        @yield('addSchool')
-        @yield('schoolList')
-        @yield('editSchool')
-        @yield('addDriver')
-        @yield('editDriver')
-        @yield('bookingQuery')
-        @yield('bookingQueries')
-        @yield('cancelledBookingQueries')
-        @yield('taskList')
-        @yield('taskListWithoutDiver')
-        @yield('tripList')
-        @yield('searchTrip')
-        @yield('individualDriverTrips')
+        @yield('countryList')
+        
   
 
         @yield('404')
