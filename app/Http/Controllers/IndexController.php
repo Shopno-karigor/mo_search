@@ -21,9 +21,19 @@ class IndexController extends Controller
     }
     public function search(Request $request){
         $params = $request->all();
-        $data = Operator::where('operators.id',$params['operator_id'])
-        ->join('countries', 'countries.id', '=', 'operators.country_id')
-        ->get();
+        $validated = $request->validate([
+            'country_id' => 'required',
+        ]);  
+        if(isset($params['operator_id'])){
+            $data = Operator::where('operators.id',$params['operator_id'])
+            ->join('countries', 'countries.id', '=', 'operators.country_id')
+            ->get();
+        }else{
+            $data = Operator::where('operators.country_id',$params['country_id'])
+            ->join('countries', 'countries.id', '=', 'operators.country_id')
+            ->get();
+        }
+        
         return view('pages.Search.search_result', compact('data'));
     }
     // Errors

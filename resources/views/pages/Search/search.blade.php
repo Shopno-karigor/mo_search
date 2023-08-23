@@ -111,12 +111,15 @@
                         <div class="col-6">
                           <div class="form-group">
                               <label>Select Country</label>
-                              <select class="form-control select1 select1-hidden-accessible" id="country-list" style="width: 100%;" data-select1-id="1" tabindex="-1" aria-hidden="true" name="country_id">
+                              <select class="form-control select1 select1-hidden-accessible @error('country_id') is-invalid @enderror" id="country-list" style="width: 100%;" data-select1-id="1" tabindex="-1" aria-hidden="true" name="country_id" required>
                                 <option selected="selected" disabled>Select Country</option>
                                 @foreach ($countries as $item)
                                 <option value="{{$item->id}}">{{$item->country_name}}</option>
                                 @endforeach
                               </select>
+                                @error('country_id')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
                           </div>
                         </div>
                         <div class="col-6">
