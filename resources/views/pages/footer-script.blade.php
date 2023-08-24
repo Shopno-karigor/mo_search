@@ -112,3 +112,34 @@
   });
 </script>
 
+<!-- Finding Operators -->
+<script>
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  
+  $("#country-list").change(function() {
+    var country_id = $(this).children("option:selected").val();
+
+    $.ajax({
+        type:'post',
+        url:{{url('search-operators')}},
+        data:{
+          'country_id': country_id
+        },
+        dataType: 'json',
+        success:function(data) {
+          // alert(data.responseJSON)
+          alert("ok")
+        },
+        error: function(data){
+          var errors = data.responseJSON;
+          alert(errors)
+        }
+      });
+    // alert(country_id);
+   
+  });
+</script>

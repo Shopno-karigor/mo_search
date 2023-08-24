@@ -18,6 +18,7 @@ use App\Http\Controllers\OperatorController;
 
 Route::get('/', [IndexController::class, 'index_welcome'])->name('/');
 Route::get('search', [IndexController::class, 'index_search'])->name('search');
+Route::post('search-operators', [IndexController::class, 'find_operators'])->name('search-operators');
 Route::post('submit-search-query', [IndexController::class, 'search'])->name('submit-search-query');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'
