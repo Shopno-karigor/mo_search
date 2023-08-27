@@ -40,11 +40,9 @@ class IndexController extends Controller
     }
     public function find_operators(Request $request){
         $params = $request->all();
-        // $operators['data'] = Operator::where('operators.country_id',$id)
-        // ->get();
-        // return view('pages.Search.search', compact('operators'));
-        // return response()->json($operators);
-        return response()->json("ok");
+        $operators = Operator::where('operators.country_id',$params['country_id'])
+        ->get();
+        return response()->json($operators);
     }
     // Errors
     public function index_error_404(){ return view('admin.pages.Errors.404');}

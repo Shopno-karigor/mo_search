@@ -112,7 +112,7 @@
   });
 </script>
 
-<!-- Finding Operators -->
+<!-- Finding Operators by Ajax-->
 <script>
   $.ajaxSetup({
     headers: {
@@ -122,24 +122,26 @@
   
   $("#country-list").change(function() {
     var country_id = $(this).children("option:selected").val();
-
     $.ajax({
         type:'post',
-        url:{{url('search-operators')}},
+        url:"{{route('search-operators')}}",
         data:{
-          'country_id': country_id
+          'country_id':country_id
         },
-        dataType: 'json',
         success:function(data) {
-          // alert(data.responseJSON)
-          alert("ok")
+          var $operator_list = $('#operator-list');
+          $operator_list.empty();
+          $operator_list.append('<option selected="selected" disabled >Select Operator</option>');
+          for (var i = 0; i < data.length; i++) {
+                $operator_list.append('<option value=' + data[i].id + '>' + data[i].operator_name + '</option>');
+            }
+          // alert(data['1']['operator_name']);
         },
-        error: function(data){
-          var errors = data.responseJSON;
-          alert(errors)
+        error:function(response){
+          var errors = response.responseJSON;
+          alert(errors);
         }
-      });
-    // alert(country_id);
+      });   
    
   });
 </script>
